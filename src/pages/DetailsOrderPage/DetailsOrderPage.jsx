@@ -50,7 +50,7 @@ const DetailsOrderPage = () => {
         <Loading isLoading={isLoading}>
             <div style={{ width: "100%", background: "#f5f5fa" }}>
                 <div style={{ width: "1270px", margin: "0 auto" }}>
-                    <h4>Chi tiết đơn hàng</h4>
+                    <h4 style={{ fontSize: "18px" }}>Chi tiết đơn hàng</h4>
                     <WrapperHeaderUser>
                         <WrapperInfoUser>
                             <WrapperLabel>Địa chỉ người nhận</WrapperLabel>
@@ -114,8 +114,8 @@ const DetailsOrderPage = () => {
                                         <img
                                             src={order?.image}
                                             style={{
-                                                width: "70px",
-                                                height: "70px",
+                                                width: "200px",
+                                                height: "200px",
                                                 objectFit: "cover",
                                                 border: "1px solid rgb(238, 238, 238)",
                                                 padding: "2px",

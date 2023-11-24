@@ -93,10 +93,24 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
         setSearch(e.target.value)
     }
 
+    const [keyword, setKeyword] = useState('')
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            const searchUrl = `/search?keyword=${encodeURIComponent(keyword)}`
+            //encodeURIComponent mã hóa kí tự đặc biệt
+            navigate(searchUrl)
+        }
+    }
+
+    const handleChange = (event) => {
+        setKeyword(event.target.value)
+        dispatch(searchProduct(event.target.value))
+    }
 
 
     return (
-        <div style={{ width: '100%', background: 'rgb(5, 5, 7)', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '100%', background: 'rgb(5, 5, 7)', display: 'flex', justifyContent: 'center', position: "fixed", zIndex: 10 }}>
             <WrapperHeader style={{ justifyContent: isHiddenSearch ? "space-between" : "unset" }}>
                 <Col span={5}>
                     <WrapperTextHeader to='/'>
@@ -108,15 +122,17 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
                     <Col span={13}>
                         <ButtonInputSearch
                             size="large"
+                            type='text'
                             bordered={false}
-                            textButton="Tìm kiếm"
+                            // textButton="Tìm kiếm"
                             isLoading={loading}
-                            cleanData={() => {
-                                setSearch("")
-                            }}
-                            value={search}
+                            // cleanData={() => {
+                            //     setSearch("")
+                            // }}
+                            // value={search}
                             placeholder="Nhập tên sản phẩm muốn tìm kiếm!"
-                            onChange={onSearch}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
 
                         />
 
@@ -133,7 +149,10 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
                                     objectFit: 'cover'
                                 }} />
                             ) : (
-                                <UserOutlined style={{ fontSize: '30px' }} />
+                                <UserOutlined style={{
+                                    fontSize: '30px',
+
+                                }} />
                             )}
                             {user?.access_token ? (
                                 <>
@@ -147,7 +166,7 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
                                     <WrapperTextHeaderSmall style={{ fontSize: '15px' }} >Đăng nhập/Đăng kí</WrapperTextHeaderSmall>
                                     <div>
                                         <WrapperTextHeaderSmall style={{ fontSize: '15px' }} >Tài khoản</WrapperTextHeaderSmall>
-                                        <CaretDownOutlined />
+                                        {/* <CaretDownOutlined /> */}
                                     </div>
                                 </div>
                             )}

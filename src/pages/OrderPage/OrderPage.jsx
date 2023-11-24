@@ -225,7 +225,7 @@ const OrderPage = () => {
     return (
         <div style={{ background: '#f5f5fa', with: '100%', height: '100vh', padding: '10px' }}>
             <div style={{ height: '100%', width: '1270px', margin: '0 auto' }}>
-                <h3><span style={{ cursor: 'pointer', fontWeight: 'bold', fontSize: '16px', paddingLeft: '10px' }}>Giỏ hàng</span></h3>
+                <h3><span style={{ cursor: 'pointer', fontWeight: 'bold', fontSize: '20px', paddingLeft: '10px' }}>Giỏ hàng</span></h3>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <WrapperLeft>
                         <div style={{ backgroundColor: "#fff", padding: '16px' }}>

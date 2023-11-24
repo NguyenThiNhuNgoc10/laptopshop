@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const WrapperHeader = styled(Row)`
+@media (max-width:1023px) {
+    display: flex;
+    
+}
+display: flex;
 width: 1270px; 
 padding: 12px 0;
 // background-color: #050507;
@@ -13,6 +18,9 @@ flex-wrap: nowrap;
 `
 
 export const WrapperTextHeader = styled(Link)`
+@media (max-width:1023px) {
+    font-size: 15px;
+}
     font-size: 24px;
     color: #fff;
     font-weight: bold;
@@ -20,6 +28,9 @@ export const WrapperTextHeader = styled(Link)`
 `
 
 export const WrapperHeaderAccout = styled.div`
+@media (max-width:1023px) {
+    display: none;
+}
     display: flex;
     align-items: center;
     color: #fff;
@@ -27,6 +38,9 @@ export const WrapperHeaderAccout = styled.div`
     font-size: 12px;
 `
 export const WrapperTextHeaderSmall = styled.span` 
+@media (max-width:1023px) {
+    display: none;
+}
     font-size: 12px;
     color: #fff;
 `

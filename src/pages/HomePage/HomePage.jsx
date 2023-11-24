@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import TypeProduct from '../../components/TypeProduct/TypeProduct'
-import { WrapperButtonMore, WrapperProducts, WrapperTypeProduct } from "./style"
+import { WrapperButtonMore, WrapperProducts, WrapperTypeProduct, WrapperContents } from "./style"
 import SliderComponent from "../../components/SliderComponent/SliderComponent"
 import slider_2 from "../../assets/images/slider_2.webp"
 import slider_1 from "../../assets/images/slider_1.png"
@@ -14,6 +14,7 @@ import Loading from "../../hooks/LoadingComponent/Loading"
 import { useDebounce } from "../../hooks/useDebounce"
 import Footer from "../../components/Footer/Footer"
 
+
 const HomePage = () => {
     const searchProduct = useSelector((state) => state?.product?.search)
     const searchDebounce = useDebounce(searchProduct, 500)
@@ -24,8 +25,8 @@ const HomePage = () => {
     const fetchProductAll = async (context) => {
         console.log('context', context)
         const limit = context?.queryKey && context.queryKey[1]
-        const search = context?.queryKey && context.queryKey[2]
-        const res = await ProductService.getAllProduct(search, limit)
+        // const search = context?.queryKey && context.queryKey[2]
+        const res = await ProductService.getAllProduct('', limit)
 
         return res
     }
@@ -37,7 +38,7 @@ const HomePage = () => {
         }
     }
 
-    const { isLoading, data: products, isPreviousData } = useQuery(['products', limit, searchDebounce], fetchProductAll, { retry: 3, retryDelay: 1000, keepPreviousData: true })
+    const { isLoading, data: products, isPreviousData } = useQuery(['products', limit], fetchProductAll, { retry: 3, retryDelay: 1000, keepPreviousData: true })
 
     useEffect(() => {
         fetchAllTypeProduct()
@@ -55,8 +56,8 @@ const HomePage = () => {
                 </WrapperTypeProduct>
             </div>
             <div className='body' style={{ with: '100%', backgroundColor: '#efefef', }}>
-                <div id="container" style={{ backgroundColor: '#efefef', padding: '0 120px' }}>
-                    <SliderComponent arrImages={[slider_2, slider_1, slider_5, slider_4]} />
+                <WrapperContents id="container" >
+                    <span><SliderComponent arrImages={[slider_2, slider_1, slider_5, slider_4]} /></span>
                     <WrapperProducts>
                         {products?.data?.map((product) => {
                             return (
@@ -89,7 +90,7 @@ const HomePage = () => {
                             onClick={() => setLimit((prev) => prev + 6)}
                         />
                     </div>
-                </div>
+                </WrapperContents>
             </div>
             {/* <div style={{ textAlign: "center" }}>
                 <iframe
@@ -103,7 +104,7 @@ const HomePage = () => {
                 ></iframe>
             </div> */}
             <Footer />
-        </Loading>
+        </Loading >
 
     )
 }

@@ -3,6 +3,10 @@ import Slider from 'react-slick';
 import styled from "styled-components";
 
 export const WrapperSliderStyle = styled(Slider)`
+@media (max-width:1023px) {
+    display: none;
+    
+}
     & .slick-arrow.slick-prev {
         left: 12px;
         top: 50%;

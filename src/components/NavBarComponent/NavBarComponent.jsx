@@ -1,6 +1,6 @@
 import React from "react"
 import { WrapperContent, WrapperLabelText, WrapperTextPrice, WrapperTextValue } from "./style"
-import {Checkbox, Rate }  from "antd"
+import { Checkbox, Rate } from "antd"
 
 
 
@@ -10,39 +10,39 @@ const NavBarComponent = () => {
         switch (type) {
             case 'text':
                 return options.map((option) => {
-                        return (
-                            <WrapperTextValue>{option}</WrapperTextValue>
-                        )    
+                    return (
+                        <WrapperTextValue>{option}</WrapperTextValue>
+                    )
                 })
             case 'checkbox':
                 return (
-                <Checkbox.Group style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px' }} onChange={onChange}>
-                    {options.map((option) => {
-                        return (
-                            <Checkbox style={{ marginLeft: 0 }} value={option.value}>{option.label}</Checkbox>
-                        )
-                    })}
-                    
-              </Checkbox.Group>
+                    <Checkbox.Group style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px' }} onChange={onChange}>
+                        {options.map((option) => {
+                            return (
+                                <Checkbox style={{ marginLeft: 0 }} value={option.value}>{option.label}</Checkbox>
+                            )
+                        })}
+
+                    </Checkbox.Group>
                 )
             case 'star':
                 return options.map((option) => {
-                    return (  
+                    return (
                         <Rate style={{ fontSize: '12px' }} disabled defaultValue={option} />
-                    )  
+                    )
                 })
-             case 'price':
+            case 'price':
                 return options.map((option) => {
-                    return (  
+                    return (
                         <WrapperTextPrice>{option}</WrapperTextPrice>
-                    )  
+                    )
                 })
             default:
                 return <></>
         }
     }
     return (
-        <div>
+        <div style={{ paddingTop: "80px" }}>
             <WrapperLabelText>Label</WrapperLabelText>
             <WrapperContent>
                 {renderContent('text', ['ASSUS', 'HP', 'DELL'])}

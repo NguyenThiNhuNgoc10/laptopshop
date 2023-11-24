@@ -10,6 +10,18 @@ export const WrapperCardStyle = styled(Card)`
     position: relative;
     background-color: ${props => props.disabled ? '#ccc' : '#fff'};
     cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+    @media (max-width:1023px) {
+        max-width: 50%;
+        flex: 0 0 50%;
+        margin: 0 8px;
+        & img {
+            height: 150px;
+            width: 150px;
+        },
+        & .ant-card-cover >* {
+            width: 180px;
+        }
+    }
 
 `
 

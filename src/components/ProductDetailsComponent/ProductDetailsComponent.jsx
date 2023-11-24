@@ -290,7 +290,7 @@ const ProductdetailsComponent = ({ idProduct }) => {
             borderRadius: '0',
             boxShadow: ' 0 0 1pt 1pt #000',
             fontWeight: 'bold',
-
+            cursor: 'pointer',
           }}
         >
           <Title onClick={() => setActive(1)}>Thông tin nổi bật</Title>

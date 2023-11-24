@@ -3,7 +3,7 @@ import { Button } from 'antd'
 import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
 import InputComponent from "../InputComponent/InputComponent";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
-
+import { WrapperSearch } from "./style";
 
 
 const ButtonInputSearch = (props) => {
@@ -18,7 +18,8 @@ const ButtonInputSearch = (props) => {
     } = props
 
     return (
-        <div style={{ display: 'flex', }}>
+        // <div style={{ display: 'flex', }}>
+        <WrapperSearch >
             <InputComponent
                 size={size}
                 placeholder={placeholder}
@@ -39,13 +40,13 @@ const ButtonInputSearch = (props) => {
             // style={{  backgroundColor: backgroundColorInput }} 
             />
 
-            {value !== "" && !loading && <button style={{ border: 'none', fontSize: '20px', backgroundColor: '#fff', paddingLeft: '10px' }} onClick={() => {
+            {/* {value !== "" && !loading && <button style={{ border: 'none', fontSize: '20px', backgroundColor: '#fff', paddingLeft: '10px' }} onClick={() => {
                 cleanData()
 
             }}>
                 <CloseOutlined />
 
-            </button>}
+            </button>} */}
 
 
 
@@ -62,7 +63,8 @@ const ButtonInputSearch = (props) => {
                 textButton={textButton}
                 styleButton={{ color: colorButton }}
             />
-        </div>
+        </WrapperSearch>
+        // </div>
     )
 }
 

@@ -61,5 +61,11 @@ export const getAllTypeProduct = async () => {
     return res.data
 }
 
+export const searchProduct = async (keyword) => {
+    console.log('keyword', keyword)
+    const response = await
+        axios.get(`${process.env.REACT_APP_API_URL}/product/search?keyword=${keyword}`)
+    return response.data
+}
 
 

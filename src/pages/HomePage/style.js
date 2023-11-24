@@ -2,6 +2,11 @@ import styled from "styled-components";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 
 export const WrapperTypeProduct = styled.div`
+@media (max-width:1023px) {
+    display: none;
+    
+    
+}
     display: flex;
     align-items: center;
     gap: 24px;
@@ -24,8 +29,20 @@ export const WrapperButtonMore = styled(ButtonComponent)`
 `
 
 export const WrapperProducts = styled.div`
+@media (max-width:1023px) {
+padding: 0 -8px;
+}
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 20px;
+`
+export const WrapperContents = styled.div`
+@media (max-width:1023px) {
+    background-color: #efefef,
+    padding: 0;
+  
+}
+ background-color: #efefef,
+  padding: 0 120px
 `

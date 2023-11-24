@@ -60,7 +60,8 @@ export const WrapperQuanlityProduct = styled.div`
     gap: 4;
     align-items: center;
     max-width: 100px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
+    border: 1px solid;
     border-radius: 4px;
     width: 100%;
 `
