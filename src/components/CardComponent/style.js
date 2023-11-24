@@ -2,7 +2,9 @@ import Card from "antd/es/card/Card";
 import styled from "styled-components";
 
 export const WrapperCardStyle = styled(Card)`
-    width: 200px;
+    
+    max-width: 16.66667%;
+    flex: 0 0 16.66667%;
     & img {
         height: 200px;
         width: 200px;
@@ -13,7 +15,8 @@ export const WrapperCardStyle = styled(Card)`
     @media (max-width:1023px) {
         max-width: 50%;
         flex: 0 0 50%;
-        margin: 0 8px;
+        padding: 0 16px;
+        margin: 8px 0;
         & img {
             height: 150px;
             width: 150px;

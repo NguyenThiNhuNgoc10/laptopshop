@@ -1,5 +1,5 @@
 import { Badge, Button, Col, Popover } from "antd"
-import { WrapperContentPopup, WrapperHeader, WrapperHeaderAccout, WrapperTextHeader, WrapperTextHeaderSmall } from "./style"
+import { WrapperContentPopup, WrapperHeader, WrapperHeaderAccout, WrapperTextHeader, WrapperTextHeaderSmall, WrapperSearch } from "./style"
 import React, { useEffect, useState, } from "react"
 import {
     UserOutlined,
@@ -111,34 +111,36 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
 
     return (
         <div style={{ width: '100%', background: 'rgb(5, 5, 7)', display: 'flex', justifyContent: 'center', position: "fixed", zIndex: 10 }}>
-            <WrapperHeader style={{ justifyContent: isHiddenSearch ? "space-between" : "unset" }}>
-                <Col span={5}>
+            <WrapperHeader>
+                <div>
                     <WrapperTextHeader to='/'>
                         LAPTOPSHOP
                     </WrapperTextHeader>
 
-                </Col>
+                </div>
                 {!isHiddenSearch && (
-                    <Col span={13}>
-                        <ButtonInputSearch
-                            size="large"
-                            type='text'
-                            bordered={false}
-                            // textButton="Tìm kiếm"
-                            isLoading={loading}
-                            // cleanData={() => {
-                            //     setSearch("")
-                            // }}
-                            // value={search}
-                            placeholder="Nhập tên sản phẩm muốn tìm kiếm!"
-                            onChange={handleChange}
-                            onKeyDown={handleKeyDown}
+                    <WrapperSearch>
+                        <div>
+                            <ButtonInputSearch
+                                size="large"
+                                type='text'
+                                bordered={false}
+                                // textButton="Tìm kiếm"
+                                isLoading={loading}
+                                // cleanData={() => {
+                                //     setSearch("")
+                                // }}
+                                // value={search}
+                                placeholder="Nhập tên sản phẩm muốn tìm kiếm!"
+                                onChange={handleChange}
+                                onKeyDown={handleKeyDown}
 
-                        />
+                            />
 
-                    </Col>
+                        </div>
+                    </WrapperSearch>
                 )}
-                <Col span={6} style={{ display: 'flex', gap: ' 54px', alignItems: 'center' }}>
+                <div style={{ display: 'flex', gap: ' 54px', alignItems: 'center' }}>
                     <Loading isLoading={loading}>
                         <WrapperHeaderAccout>
                             {userAvatar ? (
@@ -180,7 +182,7 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
                             <WrapperTextHeaderSmall style={{ fontSize: '15px' }} >Giỏ hàng</WrapperTextHeaderSmall>
                         </div>
                     )}
-                </Col>
+                </div>
             </WrapperHeader>
         </div>
     )

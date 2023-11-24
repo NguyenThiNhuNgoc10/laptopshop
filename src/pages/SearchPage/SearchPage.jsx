@@ -3,6 +3,7 @@ import * as ProductService from '../../services/ProductService'
 import { useQuery } from '@tanstack/react-query'
 import { Col, Row } from 'antd'
 import CardComponent from '../../components/CardComponent/CardComponent'
+import { WrapperSearchProduct } from './style'
 
 const SearchPage = () => {
     const [keyword, setKeyword] = useState('')
@@ -51,7 +52,7 @@ const SearchPage = () => {
                     marginTop: '20px',
                 }}
             >
-                <Row
+                <WrapperSearchProduct
                     gutter={{
                         xs: 8,
                         sm: 16,
@@ -61,28 +62,23 @@ const SearchPage = () => {
                 >
                     {products?.data?.map((product) => {
                         return (
-                            <Col className='gutter-row' span={2 / 4}>
-                                <div style={{
-                                    margin: '15px',
-                                }}>
-                                    <CardComponent
-                                        key={product._id}
-                                        countInStock={product.countInStock}
-                                        description={product.description}
-                                        image={product.image}
-                                        name={product.name}
-                                        price={product.price}
-                                        rating={product.rating}
-                                        type={product.type}
-                                        selled={product.selled}
-                                        discount={product.discount}
-                                        id={product._id}
-                                    />
-                                </div>
-                            </Col>
+                            <CardComponent
+                                key={product._id}
+                                countInStock={product.countInStock}
+                                description={product.description}
+                                image={product.image}
+                                name={product.name}
+                                price={product.price}
+                                rating={product.rating}
+                                type={product.type}
+                                selled={product.selled}
+                                discount={product.discount}
+                                id={product._id}
+                            />
+
                         )
                     })}
-                </Row>
+                </WrapperSearchProduct>
             </div>
             <div
                 style={{

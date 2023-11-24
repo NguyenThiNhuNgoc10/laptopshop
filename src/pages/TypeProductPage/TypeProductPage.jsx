@@ -139,22 +139,21 @@ const TypeProductPage = () => {
                                     }
                                 }).map((data) => {
                                     return (
-                                        <Col className='gutter-row' span={2 / 4}>
-                                            <div>
-                                                <CardComponent key={data._id}
-                                                    countInStock={data.countInStock}
-                                                    description={data.description}
-                                                    image={data.image}
-                                                    name={data.name}
-                                                    price={data.price}
-                                                    rating={data.rating}
-                                                    type={data.type}
-                                                    selled={data.selled}
-                                                    discount={data.discount}
-                                                    id={data._id}
-                                                />
-                                            </div>
-                                        </Col>
+
+
+                                        <CardComponent key={data._id}
+                                            countInStock={data.countInStock}
+                                            description={data.description}
+                                            image={data.image}
+                                            name={data.name}
+                                            price={data.price}
+                                            rating={data.rating}
+                                            type={data.type}
+                                            selled={data.selled}
+                                            discount={data.discount}
+                                            id={data._id}
+                                        />
+
                                     )
                                 }
                                 )

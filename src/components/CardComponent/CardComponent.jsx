@@ -12,6 +12,7 @@ const CardComponent = (props) => {
     navigate(`/product-details-page/${id}`)
   }
   return (
+
     <WrapperCardStyle
       hoverable
       headStyle={{ width: '200px', height: '200px' }}

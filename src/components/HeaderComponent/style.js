@@ -6,6 +6,11 @@ import styled from "styled-components";
 export const WrapperHeader = styled(Row)`
 @media (max-width:1023px) {
     display: flex;
+    gap: 0;
+    width: 100%;
+    flex-wrap: wrap;
+   padding: 12px 16px;
+    overflow: hidden;
     
 }
 display: flex;
@@ -15,6 +20,8 @@ padding: 12px 0;
 align-items: center;
 gap: 16px;
 flex-wrap: nowrap;
+justify-content: space-between;
+
 `
 
 export const WrapperTextHeader = styled(Link)`
@@ -54,4 +61,12 @@ export const WrapperContentPopup = styled.p`
     &:hover {
         color: #0000ff;
     }
+`
+
+export const WrapperSearch = styled.div` 
+@media (max-width:1023px) {
+    display: none;
+}
+   flex: 1;
+    
 `

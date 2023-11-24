@@ -30,12 +30,14 @@ export const WrapperButtonMore = styled(ButtonComponent)`
 
 export const WrapperProducts = styled.div`
 @media (max-width:1023px) {
-padding: 0 -8px;
+margin: 12px -16px;
+gap: 0;
 }
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 20px;
+    justify-content: center;
 `
 export const WrapperContents = styled.div`
 @media (max-width:1023px) {

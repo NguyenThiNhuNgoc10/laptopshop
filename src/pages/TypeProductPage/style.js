@@ -6,6 +6,7 @@ export const WrapperProducts = styled.div`
     gap: 12px;
     flex-wrap: wrap;
     margin-top: 10px;
+    width: 100%;
 `
 
 export const WrapperNavbar = styled(Col)`
