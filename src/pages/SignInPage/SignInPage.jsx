@@ -14,6 +14,7 @@ import * as message from "../../components/Message/Message"
 import jwt_decode from "jwt-decode";
 import { updateUser } from '../../redux/slides/userSlide'
 import { useDispatch } from 'react-redux'
+import * as Message from '../../components/Message/Message'
 
 const SignInPage = () => {
     const [isShowPassword, setIsShowpassword] = useState(false)
@@ -30,30 +31,32 @@ const SignInPage = () => {
 
     const { data, isLoading, isSuccess, isError } = mutation
 
+
+
+    const handleGetDetailsUser = async (id, token) => {
+        const storage = localStorage.getItem('refresh_token')
+        const refreshToken = JSON.stringify(storage)
+        // lay duoc du lieu tu backend
+        const response = await UserService.getDetailsUser(id, token)
+        dispatch(updateUser({ ...response?.data, access_token: token, refreshToken }))
+    }
     useEffect(() => {
-        if (isSuccess) {
-            if (location?.state) {
-                navigate(location?.state)
-            } else {
-                navigate('/')
-            }
-            localStorage.setItem("access_token", JSON.stringify(data?.access_token))
-            if (data?.access_token) {
+        if (data?.status === 'OK') {
+
+            navigate('/')
+            localStorage.setItem('access_token', JSON.stringify(data?.access_token))
+            localStorage.setItem('refresh_token', JSON.stringify(data?.refresh_token))
+            if (data?.access_token && typeof data?.access_token === 'string') {
                 const decoded = jwt_decode(data?.access_token)
-                console.log('decode', decoded)
                 if (decoded?.id) {
-                    handleGetDetailsUser(decoded?.id, data?.access_token);
+                    handleGetDetailsUser(decoded?.id, data?.access_token)
                 }
             }
-        }
-    }, [isSuccess])
-    const handleGetDetailsUser = async (id, token) => {
-        // lay duoc du lieu tu backend
-        const res = await UserService.getDetailsUser(id, token);
-        dispatch(updateUser({ ...res?.data, access_token: token }));
-    };
 
-    console.log('mutation', mutation)
+        } else if (data?.status === 'ERR') {
+            Message.error(data?.message)
+        }
+    }, [data?.status])
 
 
     const handleNavigateSignUp = () => {

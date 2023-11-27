@@ -53,6 +53,10 @@ const AdminProduct = () => {
         type: '',
         countInStock: '',
         discount: "",
+        hardDrive: '',
+        cpu: '',
+        ram: '',
+        monitor: '',
     })
 
 
@@ -350,7 +354,8 @@ const AdminProduct = () => {
         {
             title: 'Type',
             dataIndex: 'type',
-            ...getColumnSearchProps('type')
+            // ...getColumnSearchProps('type')
+            sorter: (a, b) => a.type.length - b.type.length,
         },
         {
             title: 'Action',
@@ -459,6 +464,10 @@ const AdminProduct = () => {
             type: stateProduct.type === 'add_type' ? stateProduct.newType : stateProduct.type,
             countInStock: stateProduct.countInStock,
             discount: stateProduct.discount,
+            hardDrive: stateProduct.hardDrive,
+            cpu: stateProduct.cpu,
+            ram: stateProduct.ram,
+            monitor: stateProduct.monitor,
 
         }
         mutation.mutate(params, {

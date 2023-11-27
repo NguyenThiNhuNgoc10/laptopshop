@@ -16,7 +16,7 @@ export const WrapperCardStyle = styled(Card)`
         max-width: 50%;
         flex: 0 0 50%;
         padding: 0 16px;
-        margin: 8px 0;
+        margin: 8px 8px;
         & img {
             height: 150px;
             width: 150px;
@@ -65,3 +65,5 @@ export const WrapperStyleTextSell = styled.span`
     font-size: 15px;
     line-height: 24px;
 `
+
+

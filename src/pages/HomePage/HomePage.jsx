@@ -20,7 +20,7 @@ const HomePage = () => {
     const searchDebounce = useDebounce(searchProduct, 500)
     const refSearch = useRef()
     const [loading, setLoading] = useState(false)
-    const [limit, setLimit] = useState(6)
+    const [limit, setLimit] = useState(5)
     const [typeProducts, setTypeProducts] = useState([])
     const fetchProductAll = async (context) => {
         console.log('context', context)
@@ -87,7 +87,7 @@ const HomePage = () => {
                             }}
                             disabled={products?.total === products?.data?.length || products?.totalPage === 1}
                             styleTextButton={{ fontWeight: 500, color: products?.total === products?.data?.length && "#fff" }}
-                            onClick={() => setLimit((prev) => prev + 6)}
+                            onClick={() => setLimit((prev) => prev + 5)}
                         />
                     </div>
                 </WrapperContents>

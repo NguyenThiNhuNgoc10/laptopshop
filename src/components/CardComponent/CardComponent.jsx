@@ -49,6 +49,9 @@ const CardComponent = (props) => {
         }
       </WrapperPriceText>
     </WrapperCardStyle>
+
+
+
   )
 }
 

@@ -29,7 +29,7 @@ const TypeProductPage = () => {
     }
     const fetchProductType = async (type, page, limit) => {
         const response = await ProductService.getProductType(type, page, limit)
-        if (response?.status == 'OK') {
+        if (response?.status === 'OK') {
             setIsLoading(false)
             setProduct(response?.data)
             setPanigate({ ...panigate, total: response?.totalPages })
@@ -115,10 +115,10 @@ const TypeProductPage = () => {
                             </WrapButton>
                             {/* max */}
                             <WrapButton onClick={handleFilterMax}>
-                                Sản phẩm có lớn nhỏ hơn 20 triệu
+                                Sản phẩm có giá lớn hơn 20 triệu
                             </WrapButton>
                             {/* không lọc */}
-                            <WrapButton onClick={handleStateClick}>Tất cả sản phẩm</WrapButton>
+                            <WrapButton style={{ display: 'flex', flexDirection: "column" }} onClick={handleStateClick}>Tất cả sản phẩm</WrapButton>
                         </div>
                     </Col>
                     <Col span={17}>

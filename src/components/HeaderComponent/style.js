@@ -65,7 +65,10 @@ export const WrapperContentPopup = styled.p`
 
 export const WrapperSearch = styled.div` 
 @media (max-width:1023px) {
-    display: none;
+    display: flex;
+    width: 200px;
+    margin-left: 10px;
+    // size: small;
 }
    flex: 1;
     
